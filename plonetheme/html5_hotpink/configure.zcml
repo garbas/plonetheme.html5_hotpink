@@ -1,0 +1,8 @@
+<configure
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns="http://namespaces.zope.org/zope">
+
+    <plone:static directory="static" type="theme" />
+
+</configure>
+

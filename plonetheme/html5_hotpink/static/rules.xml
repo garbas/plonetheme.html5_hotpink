@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <!-- http://pypi.python.org/pypi/xdv#doctypes 
+         The HTML5 specification lists XHTML 1.0 Strict as as obsolete
+         permitted doctype string, so this doctype is recommended when
+         HTML5 output is desired. -->
+    <xsl:output
+        doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+        doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+
+    <theme href="index.html" />
+
+    <notheme if="$ajax_load" />
+    <notheme if-path="@@analytics_async/" />
+
+    <rules>
+
+        <!-- head -->
+        <replace css:theme="title" css:content="title" />
+        <!--replace css:theme="base" css:content="base" /-->
+        <before css:theme-children="head" css:content="base" />
+        <before css:theme-children="head" css:content="meta" />
+
+        <!-- Pull in Plone Javascript -->
+        <after theme-children="/html/head" content="/html/head/script" />
+        
+        <!-- body -->
+        <merge attributes="class id" css:theme="body" css:content="body" />
+
+        <!-- site title & description -->
+        <replace css:theme-children="#site-title">
+            <xsl:element name="a">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="a[@id='portal-logo']/@href" />
+                </xsl:attribute>
+                <xsl:value-of select="$site-title" />
+            </xsl:element>
+        </replace>
+        <replace css:theme-children="#site-description">
+            <xsl:value-of select="$site-description" />
+        </replace>
+
+        <!-- navigation -->
+        <replace css:theme="#menu ul" css:content="#portal-globalnav" />
+
+        <!-- sidebar -->
+        <replace css:theme-children="#sidebar">
+        <xsl:for-each css:select="div#portal-column-two > div">
+            <xsl:copy>
+                <xsl:copy-of select="@*"/>
+                <aside class="widget">
+                    <h3><xsl:copy-of select="dl/dt[@class='portletHeader']/*"/></h3>
+                    <xsl:for-each select="dl/dd">
+                        <p><xsl:copy-of select="*"/></p>
+                    </xsl:for-each>
+                </aside>
+            </xsl:copy>
+        </xsl:for-each>
+        </replace>
+        
+        <!-- footer -->
+        <replace css:theme-children="#footer">
+            <p><xsl:value-of disable-output-escaping='yes'
+                             select="$footer" /></p>
+        </replace>
+
+    </rules>
+
+    <!-- content
+         TODO: also do the same for All Content view-->
+    <rules if-content="not(/html/body[contains(@class,'template-folder_summary_view')])">
+        <replace css:theme-children=".post h1.entry-title" css:content-children="h1.documentFirstHeading" />
+        <replace css:theme-children=".post figure" css:content="#content-core .newsImageContainer a"
+            css:if-content="#content-core .newsImageContainer" />
+        <drop css:theme=".post figure"
+            if-content="not(//*/div[@id='content-core']/div[@class='newsImageContainer'])" />
+        <drop css:theme-children=".post .entry-content" />
+        <before css:theme-children=".post .entry-content"
+            css:content="#content .documentDescription" />
+        <after css:theme-children=".post .entry-content"
+            css:content="#content-core #parent-fieldname-text" />
+        <replace css:theme-children=".post .post-meta p"
+            css:content-children="#content .documentByLine" />
+        <drop css:theme=".post .post-meta .more-link" />
+    </rules>
+
+    <rules if-content="/html/body[contains(@class,'template-folder_summary_view')]">
+        <replace css:theme-children="#content">
+            <xsl:for-each css:select="#content-core > div.tileItem">
+                <article class="post">
+                    <h2 class="entry-title"><xsl:copy-of select="h2[@class='tileHeadline']/node()"/></h2>
+                    <figure><xsl:copy-of select="a"/></figure>
+                    <div class="entry-content"><xsl:copy-of select="p[@class='tileBody']/node()"/></div>
+                    <footer class="post-meta">
+                        <p><xsl:copy-of select="div[@class='documentByLine']/node()"/></p>
+                        <xsl:element name="a">
+                            <xsl:attribute name="class">more-link</xsl:attribute>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="p[@class='tileFooter']/a/@href" />
+                            </xsl:attribute>
+                            <xsl:copy-of
+                                select="p[@class='tileFooter']/a/text()" />
+                        </xsl:element>
+                    </footer>
+                </article>
+            </xsl:for-each>
+        </replace>
+    </rules>
+
+</rules>
