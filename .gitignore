@@ -1,3 +1,4 @@
 *.pyc
+.DS_Store
 
 plonetheme.html5_hotpink.egg-info/
