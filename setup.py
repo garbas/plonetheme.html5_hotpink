@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 
 version = '0.1'
-name='plonetheme.html5_hotpink',
+name='plonetheme.html5_hotpink'
 
 
 setup(
