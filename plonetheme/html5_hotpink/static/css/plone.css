@@ -103,12 +103,12 @@ div.overlay div.close span {
 }
 #contentActionMenus dl.actionMenu a,
 #contentActionMenus dl.actionMenu.activated dd {
-    background-color: #75AD0A;
+    background-color: #F71570;
     color: White;
     z-index: 5;
 }
 #contentActionMenus dl.actionMenu.activated dd {
-    border-bottom: 0.5em solid #75AD0A;
+    border-bottom: 0.5em solid #F71570;
     right: -3px;
 }
 #contentActionMenus dl.actionMenu.activated dd a:hover, #contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
@@ -125,7 +125,7 @@ div.overlay div.close span {
     margin-top: 5px;
 }
 #contentActionMenus {
-    background: none repeat scroll 0 0 #75AD0A;
+    background: none repeat scroll 0 0 #F71570;
     border-radius: 0 0.5em 0.5em 0.5em;
     float: right;
     margin: 0;
@@ -144,9 +144,13 @@ dl.actionMenu {
     position: relative;
     white-space: nowrap;
 }
-dl.actionMenu a, dl.actionMenu div {
+dl.actionMenu a,
+dl.actionMenu div {
     display: block !important;
     white-space: nowrap;
+}
+dl.actionMenu a:hover {
+    text-shadow: none;
 }
 dl.actionMenu dt {
     font-weight: normal;
@@ -199,6 +203,62 @@ label {
     font-weight: bold;
 }
 
+#edit-bar, #content ul.formTabs {
+    border-style: solid solid none;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: block;
+    margin-left: 0;
+}
+#edit-bar {
+    background-color: #F71570;
+    border: 0.25em solid #F71570;
+    font-size: 80%;
+    margin-bottom: 4em;
+    min-height: 2em;
+    padding-top: 0.05em;
+}
+#edit-bar ul {
+    list-style: none outside none;
+    margin: 0;
+}
+#edit-bar li {
+    display: inline;
+}
+#content-views {
+    background-color: #F71570;
+    float: left;
+}
+#content-views a {
+    color: White;
+}
+#content-views li.selected a,
+#content-views li a:hover,
+#content li.formTab a.selected,
+#content li.formTab a:hover {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+#content-views li.selected a,
+#content-views li a:hover,
+#content li.formTab a.selected,
+#content li.formTab a:hover {
+    background: none repeat scroll 0 0 White;
+    color: #666666;
+}
+#content-views a,
+#content li.formTab a {
+    border: medium none;
+    line-height: 2em;
+    margin: 0;
+    padding: 0 0.75em;
+    text-decoration: none;
+}
+#content-views a,
+#content li.formTab a {
+    display: inline-block;
+}
+
 .LSResult {
     position: relative;
 }
@@ -207,4 +267,24 @@ label {
     left: -200px;
     width: 400px;
     background: none repeat scroll 0 0 rgba(204, 204, 204, 0.8);
-x
+}
+
+#edit-bar, #content ul.formTabs {
+    border-style: solid solid none;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: block;
+    margin-left: 0;
+}
+#content ul.formTabs {
+    background-color: #DDDDDD;
+    border: 0.3em solid #DDDDDD;
+}
+
+#content li.formTab {
+    display: inline;
+    margin-right: 0.25em;
+    line-height: 1.5em;
+    margin-bottom: 0.25em;
+}
+

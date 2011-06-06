@@ -33,6 +33,10 @@
 
         <!-- personaltools -->
         <before css:theme="#header" css:content="#portal-personaltools-wrapper" />
+
+        <!-- edit-bar -->
+        <before css:theme-children="#content" css:content="#edit-bar" />
+
         <!-- site title & description -->
         <replace css:theme-children="#site-title">
             <xsl:element name="a">
@@ -84,10 +88,17 @@
         <before css:theme-children=".post .entry-content"
             css:content="#content .documentDescription" />
         <after css:theme-children=".post .entry-content"
-            css:content="#content-core #parent-fieldname-text" />
+            css:content-children="#content-core" />
         <replace css:theme-children=".post .post-meta p"
             css:content-children="#content .documentByLine" />
         <drop css:theme=".post .post-meta .more-link" />
+
+        <rules if-content="/html/body[contains(@class, 'template-atct_edit')]">
+            <after css:theme-children=".post .entry-content"
+                css:content-children="#content > div:nth-child(1) > dl" />
+            <after css:theme-children=".post .entry-content"
+                css:content-children="#content > div:nth-child(3)" />
+        </rules>
     </rules>
 
     <rules if-content="/html/body[contains(@class,'template-folder_summary_view')]">
