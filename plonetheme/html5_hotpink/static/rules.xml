@@ -14,7 +14,7 @@
 
     <theme href="index.html" />
 
-    <notheme if="$ajax_load" />
+    <notheme if="$notheme" />
     <notheme if-path="@@analytics_async/" />
 
     <rules>
@@ -31,6 +31,8 @@
         <!-- body -->
         <merge attributes="class id" css:theme="body" css:content="body" />
 
+        <!-- personaltools -->
+        <before css:theme="#header" css:content="#portal-personaltools-wrapper" />
         <!-- site title & description -->
         <replace css:theme-children="#site-title">
             <xsl:element name="a">

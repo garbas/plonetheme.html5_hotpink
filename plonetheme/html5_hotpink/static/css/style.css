@@ -856,21 +856,25 @@ input[type="submit"]:hover {
 }
 
 /* Search inputs */
+input.searchField,
 input[type="search"] {
 	background: #fff url(../images/search.png) no-repeat 10px center;
 	padding-left: 25px;
 	-webkit-appearance: none;
 }
 
+input.searchField::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-button {
 	-webkit-appearance: none;
 }
 
+input.searchField,
 .searchform input[type="search"] {
 	padding-right: 0;
-	max-width: 200px;
+	width: 180px;
 }
 
+input.searchButton,
 .searchform input[type="submit"] {
 	padding: 10px 12px;
 	float: right;

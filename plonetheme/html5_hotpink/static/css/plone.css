@@ -1,0 +1,210 @@
+.hiddenStructure {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    display: block;
+    height: 0.1em;
+    margin: -0.1em 0 0 -0.1em;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+}
+
+
+div.overlay-iframe,
+div.overlay-ajax {
+    min-height: 100px;
+    width: 60%;
+    z-index: 99;
+}
+div.overlay {
+    display: none;
+    font-size: 80%;
+    height: auto;
+    margin: 1em;
+    width: 700px;
+}
+div.overlaybg div.close,
+div.overlay div.close {
+    background-image: url("../images/pb_close.png");
+    cursor: pointer;
+    height: 30px;
+    left: -14px;
+    position: absolute;
+    top: -14px;
+    width: 30px;
+}
+div.overlay div.close span {
+    display: block;
+    height: 1px;
+    margin: -1px 0 0 -1px;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+}
+.pb-ajax, .pb-image {
+    background-color: #FFFFFF;
+    background: none repeat scroll 0 0 rgba(204, 204, 204, 1);
+    border: 1px solid #999999;
+    border-radius: 5px 5px 10px 10px;
+    box-shadow: 0 0 3em 0.5em #666666;
+    white-space: normal;
+}
+.pb-ajax {
+    overflow-y: auto;
+}
+.pb-ajax > div {
+    padding: 3em 1em 1em 1em;
+    width: 92%;
+}
+
+
+#portal-personaltools {
+    background: none repeat scroll 0 0 rgba(204, 204, 204, 0.4);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 0 15px rgba(204, 204, 204, 0.5);
+    float: right;
+    font-size: 80%;
+    padding: 0.25em 0.5em;
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+#portal-personaltools ul {
+    list-style: none outside none;
+    margin: 0;
+}
+#portal-personaltools li {
+    display: inline;
+}
+#portal-personaltools #anon-personalbar a {
+    float: left;
+    margin-right: 0.5em;
+}
+#portal-personaltools dt.actionMenuHeader a:after {
+    content: " ▼";
+}
+#portal-personaltools dd {
+    padding-top: 0.5em;
+    right: 0;
+    background: none repeat scroll 0 0 #E3E3E3;
+    background: none repeat scroll 0 0 rgba(204, 204, 204, 0.4);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 0 15px rgba(204, 204, 204, 0.5);
+    padding-bottom: 0.5em;
+}
+#portal-personaltools dd a {
+    line-height: 2em;
+    padding: 0 0.75em;
+}
+#portal-personaltools dd a:hover {
+    background: none repeat scroll 0 0 #F71570;
+    color: White;
+}
+#contentActionMenus dl.actionMenu a,
+#contentActionMenus dl.actionMenu.activated dd {
+    background-color: #75AD0A;
+    color: White;
+    z-index: 5;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+    border-bottom: 0.5em solid #75AD0A;
+    right: -3px;
+}
+#contentActionMenus dl.actionMenu.activated dd a:hover, #contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
+    background-color: White !important;
+    color: #666666;
+}
+#contentActionMenus dl.actionMenu {
+    line-height: 2em;
+}
+#folderHeader, #contextHeader {
+    border-bottom: 2px solid white;
+}
+#contextHeader {
+    margin-top: 5px;
+}
+#contentActionMenus {
+    background: none repeat scroll 0 0 #75AD0A;
+    border-radius: 0 0.5em 0.5em 0.5em;
+    float: right;
+    margin: 0;
+    padding: 0.1em 0.24em 0 0;
+    position: relative;
+    right: -0.24em;
+    top: -0.23em;
+}
+
+.actionMenuContent {
+    padding: 0 0.25em;
+}
+dl.actionMenu {
+    float: right;
+    margin-left: 0.5em;
+    position: relative;
+    white-space: nowrap;
+}
+dl.actionMenu a, dl.actionMenu div {
+    display: block !important;
+    white-space: nowrap;
+}
+dl.actionMenu dt {
+    font-weight: normal;
+}
+span.arrowDownAlternative {
+    font-size: 80%;
+}
+dl.actionMenu.deactivated dt {
+    margin: 0 0.25em;
+}
+dl.actionMenu.deactivated dd {
+    display: none;
+}
+dl.actionMenu.activated dd {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    min-width: 100%;
+    position: absolute;
+    width: auto;
+}
+dl.actionMenu.activated dt a, dl.actionMenu.activated dd a, dl.actionMenu.activated dd div {
+    margin: 0 0.25em;
+}
+
+
+body.template-logged_out #content,
+body.template-login_form #content,
+.pb-ajax #login-form {
+    text-align: center;
+}
+
+.field {
+    clear: both;
+    margin-bottom: 1em;
+}
+div.formControls {
+    margin: 1em;
+}
+#fieldset-openid-login label, #login-form label {
+    display: inline-block;
+    margin-right: 0.5em;
+    padding-top: 0.2em;
+    text-align: right;
+    width: 10em;
+}
+div.overlay label {
+    margin-bottom: 0.25em;
+}
+label {
+    font-weight: bold;
+}
+
+.LSResult {
+    position: relative;
+}
+.LSResult .livesearchContainer {
+    position: absolute;
+    left: -200px;
+    width: 400px;
+    background: none repeat scroll 0 0 rgba(204, 204, 204, 0.8);
+x
